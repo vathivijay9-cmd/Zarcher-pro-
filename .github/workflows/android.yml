@@ -19,13 +19,15 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        cache: gradle
 
     - name: Build with Gradle
       run: |
-        # Download a fresh wrapper to avoid the corrupted file issue
-        curl -L https://services.gradle.org/distributions/gradle-8.5-bin.zip -o gradle-8.5-bin.zip
-        unzip -q gradle-8.5-bin.zip
-        ./gradle-8.5/bin/gradle assembleDebug
+        # Download a clean Gradle wrapper shell script
+        curl -s "https://raw.githubusercontent.com/gradle/gradle/master/gradlew" -o gradlew
+        chmod +x gradlew
+        # This will auto-download the correct wrapper jar based on your properties file
+        ./gradlew assembleDebug
 
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
