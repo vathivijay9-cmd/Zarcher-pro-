@@ -1,0 +1,6 @@
+{
+  "name": "HubFixer",
+  "description": "An Android build & deployment automation suite to resolve public installation and compile configurations from GitHub links.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
